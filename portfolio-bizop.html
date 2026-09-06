@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaming Company Cohort Analysis &mdash; yappuccino</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="logo">yappuccino</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article class="case-study">
+
+      <a href="portfolio.html" class="post-back">&larr; Portfolio</a>
+
+      <div class="post-meta">BizOps &nbsp;&middot;&nbsp; Jan 2025</div>
+      <h1>Gaming Company Cohort Analysis and Forecast</h1>
+
+      <div class="case-tags">
+        <span class="case-tag">Cohort Analysis</span>
+        <span class="case-tag">Financial Forecasting</span>
+        <span class="case-tag">SQL</span>
+        <span class="case-tag">Excel</span>
+        <span class="case-tag">BizOps</span>
+      </div>
+
+      <img src="bizop/cover.webp" alt="Gaming Company Analysis" class="cover" />
+
+      <!-- OVERVIEW -->
+      <div class="case-section">
+        <h2>Overview</h2>
+        <p class="section-intro">ABC Company ("The Company") is a leading platform for immersive gaming experiences, enabling users to create, share, and explore virtual worlds. The Company serves a diverse and active user base, with a core audience predominantly between the ages of 9 and 16. The Company currently captures approximately 3% of the U.S. mobile and tablet gaming market.</p>
+      </div>
+
+      <!-- OBJECTIVE -->
+      <div class="case-section">
+        <h2>Objective</h2>
+        <p class="section-intro">This project is divided into two key parts:</p>
+        <div class="post-body">
+          <p><strong>Part I</strong> focuses on analyzing historical trends in user growth and revenue for The Company from 2016 to 2021 ("The Observation Period"). The goal is to derive actionable insights and develop theories explaining key findings based on the provided data.</p>
+          <p><strong>Part II</strong> leverages the insights from Part I, combined with market research, to create a detailed forecast for monthly active users ("MAU") and revenue for 2022.</p>
+        </div>
+      </div>
+
+      <!-- DATA PROVIDED -->
+      <div class="case-section">
+        <h2>Data Provided</h2>
+        <p class="section-intro">Two sets of data were provided. Dataset I contains user information including LoginMonth, SignUpMonth, SignUpYear, and MAUCount. Dataset II contains billing information including PaymentMonth, SignUpMonth, Monthly Unique Payer ("MUP") Count, and Billing. Both datasets were provided in xlsx. format and were not chronologically sorted, and included information outside the scope of this analysis.</p>
+
+        <div class="case-img-row">
+          <div>
+            <img src="bizop/data-mau-raw.webp" alt="MAU raw data" class="case-img" />
+            <p class="case-img-caption">Dataset I — LoginMonth, SignUpMonth, SignUpYear, MAUCount</p>
+          </div>
+          <div>
+            <img src="bizop/data-billing-raw.webp" alt="Billing raw data" class="case-img" />
+            <p class="case-img-caption">Dataset II — PaymentMonth, SignUpMonth, MUPCount, Billings</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="case-section">
+        <h2>Step 1 &mdash; Data Cleaning</h2>
+        <p class="section-intro">In order to get a better understanding of the data provided, I immediately dove into cleaning the data and getting rid of junk information that lies outside of the scope of analysis.</p>
+        <div class="post-body">
+          <p>Since the Company is only interested in its user and billing performance over the 2016 to 2021 period, I utilized applicable functions such as SUMIF to extract the total number of MAU and billing on a month-to-month basis. This gives a clear understanding of the total number of users that logged in and the total amount of billing revenue accrued in a specific month.</p>
+          <p>Organizing the datasets in chronological order also provides better visual clarity on the growth trends of the parameters under interest.</p>
+        </div>
+
+        <img src="bizop/mau-billing-table.webp" alt="MAU and Billing by Month table" class="case-img" />
+        <p class="case-img-caption">Cleaned and sorted MAU and Billing by Month (Jan 2016 excerpt)</p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="case-section">
+        <h2>Step 2 &mdash; Analyzing the Historical Trend</h2>
+        <p class="section-intro">After cleaning and organizing the data, I mapped month-to-month trends and discovered several significant patterns over the Observation Period.</p>
+
+        <div class="case-img-row">
+          <div>
+            <img src="bizop/mau-growth.webp" alt="MAU Growth chart" class="case-img" />
+            <p class="case-img-caption">MAU Growth — Jan 2016 to Sep 2021</p>
+          </div>
+          <div>
+            <img src="bizop/billing-growth.webp" alt="Billing Growth chart" class="case-img" />
+            <p class="case-img-caption">Billing Growth — same period</p>
+          </div>
+        </div>
+
+        <div class="post-body">
+          <p>Looking at the MAU growth chart reveals a period of stagnation from 2016 to 2019, followed by a significant surge starting in 2020. This sharp increase aligns with the onset of the COVID-19 pandemic, as limited indoor activities drove an increase in screen time. By the end of 2021, the platform had surpassed 27 million MAUs.</p>
+          <p>For billing growth, a drastic increase also began in early 2020, with the platform surpassing $21 million in billing revenue by the end of 2021. Interestingly, the line chart reveals spikes in December of each year, highlighting a seasonality trend in billing and monetization.</p>
+          <p>I hypothesize that the December surge in billing revenue is influenced by an increase in disposable income during the holiday season. For young users under 21, this may be driven by the redemption of gift cards received as holiday presents. For adult users over 21, year-end bonuses likely contribute to higher in-game purchases during this period.</p>
+        </div>
+
+        <img src="bizop/mau-vs-billing.webp" alt="MAU vs Billing" class="case-img" />
+        <p class="case-img-caption">MAU vs Billing overlaid — the billing gap narrows sharply by end of 2021</p>
+
+        <div class="post-body">
+          <p>From this visualization, I noted a widening gap between MAU growth and billing growth through 2021, suggesting that user count was accelerating faster than monetization. This disparity might indicate a strategic focus on user acquisition while monetization efforts lagged, potentially due to a lack of emphasis on creating valuable in-game items that incentivize user purchases.</p>
+          <p>However, by the end of 2021, billing experienced a vertical acceleration and closed the gap with MAU growth. This shift highlights a positive value creation for players, reflecting the platform's success in enhancing monetization strategies.</p>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="case-section">
+        <h2>Step 3 &mdash; Understanding Retention</h2>
+        <p class="section-intro">For a gaming company, it is crucial to examine user retention by segmenting users based on their onboarding date — a Cohort Analysis. Cohort Analysis is critical to understanding player behavior and lifecycle. It helps identify trends in user retention, gauge the effectiveness of updates or promotions, and evaluate how different player segments interact with the game.</p>
+
+        <div class="post-body">
+          <p>I conducted two separate Cohort Analyses to assess MAU retention and MUP retention independently. The heatmap below visually tracks MAU retention over time. The horizontal axis represents time in months (0–59) since onboarding, and the vertical axis represents cohorts grouped by onboarding date. The color gradient (green to red) represents retention rates, with green indicating higher retention and red indicating lower retention.</p>
+        </div>
+
+        <img src="bizop/cohort-heatmap-1.webp" alt="Customer Retention by Cohort" class="case-img" />
+        <p class="case-img-caption">MAU Cohort Retention Heatmap — Month 0 to Month 59</p>
+
+        <img src="bizop/cohort-heatmap-2.webp" alt="MUP Retention Cohort heatmap" class="case-img" />
+        <p class="case-img-caption">MUP Cohort Retention Heatmap — paying user retention across 59 months</p>
+
+        <div class="case-img-row">
+          <div>
+            <img src="bizop/mau-retention-rate.webp" alt="MAU Retention Rate" class="case-img" />
+            <p class="case-img-caption">MAU Retention Rate — drops sharply from ~20% to ~1% by Month 10</p>
+          </div>
+          <div>
+            <img src="bizop/mup-retention.webp" alt="MUP Retention Rate" class="case-img" />
+            <p class="case-img-caption">MUP Retention Rate — stabilizes at 35–45% after Month 12</p>
+          </div>
+        </div>
+
+        <div class="post-body">
+          <p>If we look at the average retention rate across cohorts from Month 0 to Month 59, most cohorts experience a sharp decline in retention within the first few months — typical in user-based platforms where only a small fraction of users remain engaged long-term. After Month 12, MAU retention rate stabilizes between 1.0% and 5.0%, representing the loyal players who stayed with the platform.</p>
+          <p>For paying users, retention exhibits a distinct pattern. While there is a slight decline in the first few months after their initial payment, paying users demonstrate higher stickiness and loyalty. After 12 months, their retention rate stabilizes between 35% and 45%, indicating that many paying users find the platform worthwhile and continue to invest in it.</p>
+          <p>However, an interesting drop in retention occurs around Month 49 after the initial payment. I hypothesize that this decline may stem from a game design issue — such as a progression barrier where advancing in the game becomes disproportionately difficult or requires excessive monetary investment, or a content gap where a lack of new features and updates leads to a repetitive and uninspiring experience. Paying users, who invest money into the platform, often have higher expectations for sustained value, and when the game fails to meet these expectations, they disengage.</p>
+        </div>
+
+        <div class="case-findings">
+          <h3>Recommendations to Address Retention</h3>
+          <ul>
+            <li>Regular content updates including new levels, features, and limited-time events to maintain excitement</li>
+            <li>Progression system review to ensure difficulty curve and rewards are balanced without requiring excessive spending</li>
+            <li>Actively soliciting player feedback to identify specific frustrations and tailor updates to user needs</li>
+            <li>Targeted promotions — discounts, exclusive items, or bonus rewards — to re-engage paying users around Month 49</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="case-section">
+        <h2>Step 4 &mdash; Monetization KPIs</h2>
+        <p class="section-intro">The two most important monetization KPIs for this analysis are the non-paying to paying user conversion rate and Average Revenue Per Paying User (ARPPU).</p>
+
+        <div class="case-img-row">
+          <div>
+            <img src="bizop/conversion-rate.webp" alt="Conversion Rate" class="case-img" />
+            <p class="case-img-caption">Conversion Rate — averages 3.3%, ranging from 2.7% to 4.5%</p>
+          </div>
+          <div>
+            <img src="bizop/arppu.webp" alt="ARPPU" class="case-img" />
+            <p class="case-img-caption">ARPPU — $18.41 average, with consistent December spikes</p>
+          </div>
+        </div>
+
+        <div class="post-body">
+          <p>The Company demonstrates an average conversion rate of 3.3% over the Observation Period, with fluctuations ranging from a minimum of 2.7% to a maximum of 4.5%. While the overall trend reflects relatively stable conversion rates, occasional spikes likely correspond to promotions, new features, or seasonal activity.</p>
+          <p>However, it is notable that there are no significant breakthroughs in the conversion rate, which may indicate a lack of major value incentives compelling users to transition from non-paying to paying. This stagnation suggests an opportunity for the Company to introduce more innovative or enticing features to drive higher conversion rates and unlock additional revenue potential.</p>
+          <p>The Company's ARPPU over the Observation Period is $18.41, with noticeable spikes in December each year. These seasonal peaks are consistent with the hypothesis that holiday promotions, discounts, and seasonal in-game events drive heightened activity and spending.</p>
+        </div>
+
+        <div class="case-findings">
+          <h3>Lifetime Value Calculation</h3>
+          <ul>
+            <li>Using ARPPU of $18.41 and average paying user retention rate of 38.9%, LTV per paying user = ARPPU ÷ (1 − retention rate) = <strong>$30.14</strong></li>
+            <li>Overall user LTV = LTV per paying user × conversion rate (3.3%) = <strong>$0.99 per user</strong></li>
+            <li>$0.99 represents the maximum amount The Company should spend on user acquisition to ensure profitability</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="case-section">
+        <h2>Step 5 &mdash; 2022 Forecast</h2>
+        <p class="section-intro">To create the 2022 MAU and billing forecast, I first analyzed historical month-to-month average growth rates. For MAU, I excluded the exponential COVID-era growth data from 2020 to get an unbiased understanding of the underlying seasonal growth pattern. For billing, I included the full Observation Period since the post-2020 surge reflects a sustained shift in monetization.</p>
+
+        <div class="case-img-row">
+          <div>
+            <img src="bizop/mau-forecast-table.webp" alt="MAU Forecast Table" class="case-img" />
+            <p class="case-img-caption">MAU monthly growth rates by year (2016–2019) — averaged for projection</p>
+          </div>
+          <div>
+            <img src="bizop/billing-forecast-table.webp" alt="Billing Forecast Table" class="case-img" />
+            <p class="case-img-caption">Billing monthly growth rates (2016–2020) — includes COVID-era uplift</p>
+          </div>
+        </div>
+
+        <img src="bizop/forecast-chart.webp" alt="Forecast Chart" class="case-img" />
+        <p class="case-img-caption">Actual vs. Forecast — solid line is actuals, dotted lines show the 2022 projection range</p>
+
+        <div class="post-body">
+          <p>Applying these historical growth rates to the 2021 ending figures, the 2022 forecast projects The Company to reach <strong>38.7 million MAUs</strong>, <strong>1.42 million Monthly Unique Payers (MUPs)</strong>, and generate <strong>$31 million in billings</strong>. The forecast shows a steady increase in MAUs and billings, with accelerated billing growth in December 2022 due to the consistent holiday seasonality trend.</p>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="case-section">
+        <h2>Summary</h2>
+        <div class="post-body">
+          <p>The analysis of The Company's performance reveals several key insights into its growth, retention, and monetization strategies. The platform demonstrated a steady rise in MAUs from 2020, driven by the pandemic's impact on screen time, reaching 27 million MAUs by the end of 2021. However, billing growth lagged behind MAU growth until late 2021, suggesting a focus on user acquisition over monetization — a gap that was then closed by a surge in billing, reflecting improved value creation for users.</p>
+          <p>The MAU to MUP conversion rate averaged 3.3% with December spikes tied to holiday behavior. The absence of significant conversion breakthroughs points to untapped potential. ARPPU averaged $18.35, with the same seasonal pattern. The calculated LTV of a paying user is $30.14; adjusted for conversion rate, the average LTV across all users is $0.99 — the maximum sustainable user acquisition cost.</p>
+          <p>Paying users showed greater loyalty, with retention stabilizing at 35–45% after 12 months, but a notable drop around Month 49 suggests a potential game design issue. The 2022 forecast projects 38.7M MAUs, 1.42M MUPs, and $31M in billings.</p>
+        </div>
+
+        <div class="case-findings">
+          <h3>Suggestions for Improvement</h3>
+          <ul>
+            <li><strong>Enhance Conversion Rates:</strong> Develop compelling value incentives to convert more non-paying users, such as exclusive in-game features or limited-time promotions</li>
+            <li><strong>Content Updates:</strong> Regularly introduce new levels, features, and seasonal events to sustain user engagement and prevent stagnation</li>
+            <li><strong>Retention Optimization:</strong> Address game design issues by refining progression systems and incorporating user feedback to eliminate potential barriers around Month 49</li>
+            <li><strong>Data-Driven Promotions:</strong> Leverage insights from seasonal spikes to create targeted campaigns during off-peak months</li>
+            <li><strong>User Acquisition Strategy:</strong> Align marketing spend with the $0.99 LTV of all users to ensure sustainable and profitable growth</li>
+          </ul>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Serina Xiong</span>
+    <a href="https://www.yappuccino.blog" target="_blank">yappuccino.blog</a>
+  </footer>
+
+</body>
+</html>
